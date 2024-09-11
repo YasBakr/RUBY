@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 3 - Vetores, Matrizes e Arquivos em Ruby</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilo para os títulos */
+    .Secondary_Tittle {
+      color: #6A0DAD; /* Roxo */
+      text-align: center; /* Centralizado */
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Estilo para o texto geral */
+    .Text {
+      text-align: justify;
+      color: #000000;
+      font-size: 18px;
+      margin: 20px 100px;
+    }
+
+    /* Centralizar o bloco de código */
+    .code-block {
+      background-color: #F2EFEB;
+      border: 1px solid #8089AA;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 16px;
+      color: #000000;
+      margin: 20px auto;
+      width: 80%;
+      text-align: left;
+      white-space: pre-wrap; /* Mantém quebras de linha */
+    }
+
+    /* Estilo para o título principal */
+    .Main_Tittle {
+      color: #6A0DAD; /* Roxo */
+      text-align: center;
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <div class="Search_Bar">
+    <a href="index.html" class="button">Página Inicial</a>
+    <a href="modulo1.html" class="button">Módulo 1</a>
+    <a href="modulo2.html" class="button">Módulo 2</a>
+    <a href="modulo4.html" class="button">Módulo 4</a>
+  </div>
+
+  <!-- Título principal do módulo -->
+  <div class="Main_Tittle">Módulo 3: Vetores, Matrizes e Arquivos em Ruby</div>
+
+  <!-- Introdução ao Módulo 3 -->
+  <p class="Text">
+    No Módulo 3, vamos mergulhar em conceitos importantes de Ruby, como a criação e manipulação de vetores, matrizes e arquivos. Esses são elementos cruciais para trabalhar com dados de forma eficiente.
+  </p>
+
+  <h2 class="Secondary_Tittle">Vetores em Ruby</h2>
+  <p class="Text">
+    Vetores, ou arrays, são uma estrutura de dados essencial para armazenar coleções de itens. Abaixo está um exemplo simples de como criar e manipular um vetor em Ruby.
+  </p>
+  <pre class="code-block">
+# Criando um vetor
+meu_array = [1, 2, 3, 4, 5]
+
+# Acessando elementos
+puts meu_array[0]  # Exibe o primeiro elemento: 1
+
+# Adicionando um novo elemento
+meu_array << 6
+
+# Exibindo o vetor atualizado
+puts meu_array.inspect
+  </pre>
+
+  <h2 class="Secondary_Tittle">Matrizes em Ruby</h2>
+  <p class="Text">
+    Matrizes são arrays multidimensionais. Elas são úteis quando você precisa representar dados em várias dimensões, como em tabelas. Veja um exemplo de como criar e acessar uma matriz:
+  </p>
+  <pre class="code-block">
+# Criando uma matriz 2x2
+matriz = [[1, 2], [3, 4]]
+
+# Acessando um elemento específico
+puts matriz[1][0]  # Exibe o valor 3
+
+# Exibindo a matriz completa
+matriz.each { |linha| puts linha.inspect }
+  </pre>
+
+  <h2 class="Secondary_Tittle">Manipulação de Arquivos em Ruby</h2>
+  <p class="Text">
+    A manipulação de arquivos em Ruby é simples e direta. Você pode abrir, ler, escrever e fechar arquivos facilmente. Abaixo, um exemplo de como criar e escrever em um arquivo:
+  </p>
+  <pre class="code-block">
+# Criando e escrevendo em um arquivo
+File.open('exemplo.txt', 'w') do |arquivo|
+  arquivo.puts 'Este é um exemplo de escrita em arquivo em Ruby.'
+end
+
+# Lendo o conteúdo do arquivo
+conteudo = File.read('exemplo.txt')
+puts conteudo
+  </pre>
+
+  <h2 class="Secondary_Tittle">Conclusão</h2>
+  <p class="Text">
+    Neste módulo, exploramos conceitos fundamentais como vetores, matrizes e manipulação de arquivos em Ruby. Esses conceitos são poderosos para lidar com grandes quantidades de dados e realizar operações complexas. No próximo módulo, vamos explorar projetos mais avançados que combinam tudo o que aprendemos até agora.
+  </p>
+
+</body>
+</html>

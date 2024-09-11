@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4 - Projeto Final em Ruby</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilo para os títulos */
+    .Secondary_Tittle {
+      color: #6A0DAD; /* Roxo */
+      text-align: center; /* Centralizado */
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Estilo para o texto geral */
+    .Text {
+      text-align: justify;
+      color: #000000;
+      font-size: 18px;
+      margin: 20px 100px;
+    }
+
+    /* Centralizar o bloco de código */
+    .code-block {
+      background-color: #F2EFEB;
+      border: 1px solid #8089AA;
+      padding: 15px;
+      font-family: monospace;
+      font-size: 16px;
+      color: #000000;
+      margin: 20px auto;
+      width: 80%;
+      text-align: left;
+      white-space: pre-wrap; /* Mantém quebras de linha */
+    }
+
+    /* Estilo para o título principal */
+    .Main_Tittle {
+      color: #6A0DAD; /* Roxo */
+      text-align: center;
+      font-size: 36px;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Barra de navegação -->
+  <div class="Search_Bar">
+    <a href="index.html" class="button">Página Inicial</a>
+    <a href="modulo1.html" class="button">Módulo 1</a>
+    <a href="modulo2.html" class="button">Módulo 2</a>
+    <a href="modulo3.html" class="button">Módulo 3</a>
+  </div>
+
+  <!-- Título principal do módulo -->
+  <div class="Main_Tittle">Módulo 4: Projeto Final em Ruby</div>
+
+  <!-- Introdução ao Módulo 4 -->
+  <p class="Text">
+    Bem-vindo ao módulo final! Agora vamos aplicar o que aprendemos até aqui para criar um projeto mais complexo que usa vetores, matrizes e manipulação de arquivos. Este projeto será uma simulação de um sistema de cadastro e consulta de notas de alunos.
+  </p>
+
+  <h2 class="Secondary_Tittle">Projeto: Sistema de Notas</h2>
+  <p class="Text">
+    Neste projeto, vamos criar um programa que permite o cadastro de notas de alunos em várias disciplinas, armazenar esses dados em uma matriz e salvar os resultados em um arquivo. O programa também permitirá consultar as notas de um aluno específico.
+  </p>
+
+  <h2 class="Secondary_Tittle">Etapas do Projeto</h2>
+  <p class="Text">
+    1. O programa solicitará o nome dos alunos e as notas de três disciplinas.
+    2. Armazenaremos esses dados em uma matriz, onde cada linha representa um aluno e as colunas representam suas notas.
+    3. Após o cadastro, os dados serão salvos em um arquivo chamado <em>notas_alunos.txt</em>.
+    4. O usuário poderá consultar as notas de um aluno específico digitando seu nome.
+  </p>
+
+  <h2 class="Secondary_Tittle">Código do Sistema de Notas</h2>
+  <pre class="code-block">
+# Definindo um array para armazenar os dados dos alunos
+alunos = []
+
+# Número de alunos e disciplinas
+num_alunos = 3
+disciplinas = ["Matemática", "Física", "Programação"]
+
+# Coletando as notas dos alunos
+num_alunos.times do |i|
+  puts "Digite o nome do aluno #{i+1}:"
+  nome = gets.chomp
+
+  # Inicializando o array de notas do aluno
+  notas = []
+
+  # Coletando as notas para cada disciplina
+  disciplinas.each do |disciplina|
+    puts "Digite a nota de #{nome} em #{disciplina}:"
+    nota = gets.chomp.to_f
+    notas << nota
+  end
+
+  # Armazenando o nome e as notas na matriz
+  alunos << { nome: nome, notas: notas }
+end
+
+# Salvando os dados em um arquivo
+File.open("notas_alunos.txt", "w") do |file|
+  alunos.each do |aluno|
+    file.puts "Aluno: #{aluno[:nome]}"
+    disciplinas.each_with_index do |disciplina, index|
+      file.puts "#{disciplina}: #{aluno[:notas][index]}"
+    end
+    file.puts "----------------------"
+  end
+end
+
+# Função para consultar notas de um aluno específico
+def consultar_notas(alunos, disciplinas)
+  puts "Digite o nome do aluno para consultar as notas:"
+  nome_busca = gets.chomp
+
+  aluno_encontrado = alunos.find { |aluno| aluno[:nome].casecmp?(nome_busca) }
+
+  if aluno_encontrado
+    puts "Notas de #{aluno_encontrado[:nome]}:"
+    disciplinas.each_with_index do |disciplina, index|
+      puts "#{disciplina}: #{aluno_encontrado[:notas][index]}"
+    end
+  else
+    puts "Aluno não encontrado."
+  end
+end
+
+# Executando a consulta
+consultar_notas(alunos, disciplinas)
+  </pre>
+
+  <h2 class="Secondary_Tittle">Conclusão</h2>
+  <p class="Text">
+    Com este projeto, você foi capaz de aplicar diversos conceitos abordados ao longo dos módulos anteriores, como o uso de vetores, matrizes e manipulação de arquivos. O sistema de notas é um exemplo de como Ruby pode ser utilizado para criar aplicações úteis e práticas. Agora, é hora de testar e explorar novas funcionalidades!
+  </p>
+
+</body>
+</html>
